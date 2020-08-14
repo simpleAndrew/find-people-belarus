@@ -7,8 +7,9 @@ $(function () {
         let filterName = document.getElementById('surname').value
         let tabs = tabNames()
         console.log(tabs)
-        $("#result").html(header())
+        $("#result").html("<table>" + header())
         tabNames().forEach(tab => searchForPeople(sheetId, tab, filterName))
+        $("#result").append("</table>");
     });
 });
 
@@ -48,11 +49,11 @@ function convertIntoObj(json) {
 }
 
 function header() {
-    return "<div class='record'> ФИО </div>"
-        + "<div class='record'> Дата Рождения </div>"
-        + "<div class='record'> Место содержания</div>"
-        + "<div class='record'> Дата задержания</div>"
-        + "<div style='float:none'/>"
+    return "<tr><th> ФИО </th>"
+        + "<th class='record'> Дата Рождения </th>"
+        + "<th class='record'> Место содержания</th>"
+        + "<th class='record'> Дата задержания</th>"
+        + "</tr>"
 
 }
 
@@ -65,9 +66,9 @@ class Record {
     }
 
     toHtml() {
-        return "<div class='record'>" + this.fullName + "</div>"
-            + "<div class='record'>" + this.year + "</div>"
-            + "<div class='record'>" + this.location + "</div>"
-            + "<div class='record'>" + this.date + "</div>"
+        return "<tr><td class='record'>" + this.fullName + "</td>"
+            + "<td class='record'>" + this.year + "</td>"
+            + "<td class='record'>" + this.location + "</td>"
+            + "<td class='record'>" + this.date + "</td></tr>"
     }
 }
