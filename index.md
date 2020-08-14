@@ -5,6 +5,15 @@
 
 https://sheets.googleapis.com/v4/spreadsheets/1NhNyoNQRHrg0Ce-NrZle6NeWCIxGa1L07WBMgOisnIM/values/%D0%9E%D0%BA%D1%80%D0%B5%D1%81%D1%82%D0%B8%D0%BD%D0%BE!A1:B2?key=AIzaSyCsPypkGNitFV5SVrbMt3ET3cMg51h-uHw
 
+<form id="target" action="destination.html">
+  <input type="text" value="Фамилия">
+  <input type="submit" value="Искать">
+</form>
+
+<div id="other">
+  Trigger the handler
+</div>
+
 ## Welcome to GitHub Pages
 
 You can use the [editor on GitHub](https://github.com/simpleAndrew/find-people-belarus/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.

@@ -6,9 +6,15 @@ $().ready(function() {
     fetchName(sheetId)
 });
 
+$("#target").submit(function( event ) {
+    alert( "Handler for .submit() called." );
+    event.preventDefault();
+});
+
 var fetchName = function(sheetId){
     var url = 'https://sheets.googleapis.com/v4/spreadsheets/'+sheetId+'/values/Окрестино!A1:B2?key='+key;
     $.get( url, function( data , tS, jq) {
         $("#text").html(data);
     });
 }
+
