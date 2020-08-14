@@ -6,11 +6,13 @@ table {
 }
 th {
   height: 30px;
+  text-align: left;
 }
 td {
+  text-align: left;
   height: 20px;
 }
-tr:nth-child(even) {background-color: white}
+tr:nth-child(even) {background-color: #fdfdf1}
 </style>
 # Поиск задержанных в Беларуси
  
