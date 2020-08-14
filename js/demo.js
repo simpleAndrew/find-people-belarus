@@ -5,21 +5,37 @@ $(function () {
     $("#search_submit").click(function (e) {
         e.preventDefault();
         let filterName = document.getElementById('surname').value
-        alert("Search for surname: " + filterName)
-        searchForPeople(sheetId, "Окрестино", filterName)
+        let tabs = tabNames()
+        console.log(tabs)
+        let res = tabNames().flatMap(tab => searchForPeople(sheetId, tab, filterName))
+            .join("")
+        $("#result").html("<div>" + res + "</div>");
     });
 });
 
+function tabNames() {
+    return [
+        "Окрестино",
+        "Советское РУВД",
+        "Советское 2 РУВД",
+        "Первомайское РУВД",
+        "Московское РУВД",
+        "Заводское РУВД",
+        "Центральное РУВД",
+        "Ленинское РУВД",
+        "Октябрьское РУВД",
+        "Неизвестное"
+    ]
+}
 
 function searchForPeople(sheetId, tabName, filterWord) {
     $.get(sheetUrl(sheetId, tabName), function (data) {
-        let objs = data.values
+        data.values
             .map(jsonRec => convertIntoObj(jsonRec))
             .filter(r => r.fullName != null)
             .filter(r => r.fullName.includes(filterWord))
             .map(r => r.toHtml())
             .join("")
-        $("#result").html("<div>" + objs + "</div>");
     });
 }
 
