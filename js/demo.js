@@ -9,7 +9,7 @@ $(function () {
         console.log(tabs)
         let res = tabNames().forEach(tab => {
             let res = searchForPeople(sheetId, tab, filterName)
-            $("#result").html.append("<div>" + res + "</div>");
+            $("#result").append("<div>" + res + "</div>");
         })
 
     });
