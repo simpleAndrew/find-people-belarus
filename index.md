@@ -10,6 +10,7 @@ th {
 td {
   height: 20px;
 }
+tr:nth-child(even) {background-color: white}
 </style>
 # Поиск задержанных в Беларуси
  
