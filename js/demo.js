@@ -34,7 +34,7 @@ function searchForPeople(sheetId, tabName, filterWord) {
             .filter(r => r.fullName != null)
             .filter(r => r.fullName.includes(filterWord))
             .map(r => r.toHtml())
-            .join("")
+            .join("<div class='float:none'/>")
         $("#result").append("<div>" + res + "</div>");
     });
 }
@@ -49,9 +49,10 @@ function convertIntoObj(json) {
 
 function header() {
     return "<div class='record'> ФИО </div>"
-        + "<div class='record'> Год Рождения </div>"
+        + "<div class='record'> Дата Рождения </div>"
         + "<div class='record'> Место содержания</div>"
         + "<div class='record'> Дата задержания</div>"
+        + "<div style='float:none'/>"
 
 }
 

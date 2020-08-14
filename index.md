@@ -2,7 +2,7 @@
 <script src="js/demo.js"></script>
 <style>
 .record {
-    alignment: left;
+    float: left;
 }
 </style>
 # Поиск задержанных в Беларуси
