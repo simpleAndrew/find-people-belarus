@@ -2,7 +2,7 @@ var key = "AIzaSyCsPypkGNitFV5SVrbMt3ET3cMg51h-uHw"
 var sheetId = "1NhNyoNQRHrg0Ce-NrZle6NeWCIxGa1L07WBMgOisnIM"
 
 $(function () {
-    $("#submitBtn").click(function (e) {
+    $("#search_submit").click(function (e) {
         e.preventDefault();
         let filterName = "Але"
         searchForPeople(sheetId, "Окрестино", filterName)

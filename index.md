@@ -9,11 +9,5 @@
   <button id="search_submit" type="button">Искать</button>
 </form>
 
-<form id="myForm">
-    <label>First Name:</label>
-    <input type="text" name="first-name">
-    <button type="button" id="submitBtn">Submit Form</button>
-</form>
-
 ## Result
 <div id="result"></div>
