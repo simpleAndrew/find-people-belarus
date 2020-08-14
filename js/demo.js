@@ -13,6 +13,7 @@ $(function(){
     $.get( sheetUrl(sheetId), function( data ) {
         $("#result").html(data);
         alert( "Load was performed." );
+        alert("" + data)
     });
 });
 
