@@ -9,11 +9,12 @@ $().ready(function() {
 $("#target").submit(function( event ) {
     alert( "Handler for .submit() called." );
     event.preventDefault();
+    fetchName(sheetId)
 });
 
 var fetchName = function(sheetId){
     $.get(sheetUrl(sheetId), function( data , tS, jq) {
-        $("#text").html(data);
+        $("#other").html(data);
     });
 }
 
