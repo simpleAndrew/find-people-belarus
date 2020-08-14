@@ -1,17 +1,5 @@
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="js/demo.js"></script>
- <script>
- $(document).ready(function(){
-     $("#submitBtn").click(function(e){
-         e.preventDefault();
-         fetchName(sheetId);
-     });
-     $("#submit").click(function(e){
-          e.preventDefault();
-          fetchName(sheetId);
-      });
- });
- </script>
  
  # Поиск задержанных в Беларуси
  
