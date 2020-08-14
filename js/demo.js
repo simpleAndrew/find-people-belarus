@@ -11,7 +11,7 @@ $(function(){
     //     fetchName(sheetId);
     // });
     let filterName = "Але"
-    $.get( sheetUrl(sheetId), function( data ) {
+    $.get( sheetUrl(sheetId, "Окрестино"), function( data ) {
         let objs = data.values
             .map(jsonRec => convertIntoObj(jsonRec))
             .filter(r => r.fullName != null)
@@ -23,8 +23,8 @@ $(function(){
     });
 });
 
-var sheetUrl = function (sheetId) {
-    return 'https://sheets.googleapis.com/v4/spreadsheets/' + sheetId + '/values/Окрестино!B2:E1000?key=' + key;
+var sheetUrl = function (sheetId, tabName) {
+    return 'https://sheets.googleapis.com/v4/spreadsheets/' + sheetId + '/values/' + tabName + '!B2:E1000?key=' + key;
 }
 
 var convertIntoObj = function(json) {
