@@ -7,7 +7,7 @@ $(function () {
         let filterName = document.getElementById('surname').value
         let tabs = tabNames()
         console.log(tabs)
-        let res = tabNames().forEach(tab => {
+        tabNames().forEach(tab => {
             let res = searchForPeople(sheetId, tab, filterName)
             $("#result").append("<div>" + res + "</div>");
         })
