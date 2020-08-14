@@ -1,9 +1,6 @@
 var key = "AIzaSyCsPypkGNitFV5SVrbMt3ET3cMg51h-uHw"
 var sheetId = "1NhNyoNQRHrg0Ce-NrZle6NeWCIxGa1L07WBMgOisnIM"
 
-
-let filterName = "Але"
-
 $(function(){
     // $("#submitBtn").click(function(e){
     //     e.preventDefault();
@@ -13,6 +10,7 @@ $(function(){
     //     e.preventDefault();
     //     fetchName(sheetId);
     // });
+    let filterName = "Але"
     $.get( sheetUrl(sheetId), function( data ) {
         let objs = data.values
             .map(jsonRec => convertIntoObj(jsonRec))
