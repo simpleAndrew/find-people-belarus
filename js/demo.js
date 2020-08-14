@@ -7,9 +7,8 @@ $(function () {
         let filterName = document.getElementById('surname').value
         let tabs = tabNames()
         console.log(tabs)
-        $("#result").html("<table>" + header())
+        $("#result").html(header())
         tabNames().forEach(tab => searchForPeople(sheetId, tab, filterName))
-        $("#result").append("</table>");
     });
 });
 
@@ -49,11 +48,10 @@ function convertIntoObj(json) {
 }
 
 function header() {
-    return "<tr><th> ФИО </th>"
-        + "<th class='record'> Дата Рождения </th>"
-        + "<th class='record'> Место содержания</th>"
-        + "<th class='record'> Дата задержания</th>"
-        + "</tr>"
+    return "<tr> <th>ФИО</th>"
+        + "<th>Дата Рождения</th>"
+        + "<th>Место содержания</th>"
+        + "<th>Дата задержания</th> </tr>"
 
 }
 
@@ -66,9 +64,9 @@ class Record {
     }
 
     toHtml() {
-        return "<tr><td class='record'>" + this.fullName + "</td>"
-            + "<td class='record'>" + this.year + "</td>"
-            + "<td class='record'>" + this.location + "</td>"
-            + "<td class='record'>" + this.date + "</td></tr>"
+        return "<tr><td>" + this.fullName + "</td>"
+            + "<td>" + this.year + "</td>"
+            + "<td>" + this.location + "</td>"
+            + "<td>" + this.date + "</td></tr>"
     }
 }

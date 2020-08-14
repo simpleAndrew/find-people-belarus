@@ -20,4 +20,14 @@ td {
 </form>
 
 # Релзультаты
-<div id="result" style="overflow-x:auto"></div>
+<div style="overflow-x:auto">
+    <table id="result">
+    <tr>
+        <th>ФИО</th>
+        <th>Дата Рождения</th>
+        <th>Место содержания</th>
+        <th>Дата задержания</th>
+    </tr>
+    </table>
+    
+</div>
