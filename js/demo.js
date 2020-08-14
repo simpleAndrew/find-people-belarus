@@ -4,7 +4,7 @@ var sheetId = "1NhNyoNQRHrg0Ce-NrZle6NeWCIxGa1L07WBMgOisnIM"
 $(function () {
     $("#search_submit").click(function (e) {
         e.preventDefault();
-        let filterName = $("#surname").innerText
+        let filterName = document.getElementById('surname').value
         alert("Search for surname: " + filterName)
         searchForPeople(sheetId, "Окрестино", filterName)
     });
