@@ -23,5 +23,5 @@ var fetchName = function (sheetId) {
 }
 
 var sheetUrl = function (sheetId) {
-    'https://sheets.googleapis.com/v4/spreadsheets/' + sheetId + '/values/Окрестино!A1:B2?key=' + key;
+    return 'https://sheets.googleapis.com/v4/spreadsheets/' + sheetId + '/values/Окрестино!A1:B2?key=' + key;
 }
