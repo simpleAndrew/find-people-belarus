@@ -7,7 +7,7 @@ $(function () {
         let filterName = document.getElementById('surname').value
         let tabs = tabNames()
         console.log(tabs)
-        $("#result").html("")
+        $("#result").html(header())
         tabNames().forEach(tab => searchForPeople(sheetId, tab, filterName))
     });
 });
@@ -45,6 +45,14 @@ function sheetUrl(sheetId, tabName) {
 
 function convertIntoObj(json) {
     return new Record(json[0], json[1], json[2], json[3])
+}
+
+function header() {
+    return "<div class='record'> ФИО </div>"
+        + "<div class='record'> Год Рождения </div>"
+        + "<div class='record'> Место содержания</div>"
+        + "<div class='record'> Дата задержания</div>"
+
 }
 
 class Record {
