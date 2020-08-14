@@ -11,7 +11,7 @@ $(function(){
     //     fetchName(sheetId);
     // });
     $.get( sheetUrl(sheetId), function( data ) {
-        var objs = data.values
+        var objs = data.values.subarray(0,10)
             .map(jsonRec => convertIntoObj(jsonRec))
             .map( r => r.toHtml())
             .join()
@@ -19,12 +19,6 @@ $(function(){
         $("#result").html("<div>" + objs + "</div>");
     });
 });
-
-var fetchName = function (sheetId) {
-    $.get(sheetUrl(sheetId), function (data, tS, jq) {
-        $("#other").html(data);
-    });
-}
 
 var sheetUrl = function (sheetId) {
     return 'https://sheets.googleapis.com/v4/spreadsheets/' + sheetId + '/values/Окрестино!B2:E1000?key=' + key;
