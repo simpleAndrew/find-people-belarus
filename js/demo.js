@@ -26,11 +26,11 @@ var fetchName = function (sheetId) {
 }
 
 var sheetUrl = function (sheetId) {
-    return 'https://sheets.googleapis.com/v4/spreadsheets/' + sheetId + '/values/Окрестино!B2:D1000?key=' + key;
+    return 'https://sheets.googleapis.com/v4/spreadsheets/' + sheetId + '/values/Окрестино!B2:E1000?key=' + key;
 }
 
 var convertIntoObj = function(json) {
-    return new Record(json[1],json[2],json[3],json[4])
+    new Record(json[0],json[1],json[2],json[3])
 }
 
 class Record {
