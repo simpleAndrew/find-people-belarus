@@ -7,9 +7,11 @@ $(function () {
         let filterName = document.getElementById('surname').value
         let tabs = tabNames()
         console.log(tabs)
-        let res = tabNames().flatMap(tab => searchForPeople(sheetId, tab, filterName))
-            .join("")
-        $("#result").html("<div>" + res + "</div>");
+        let res = tabNames().forEach(tab => {
+            let res = searchForPeople(sheetId, tab, filterName)
+            $("#result").html.append("<div>" + res + "</div>");
+        })
+
     });
 });
 
