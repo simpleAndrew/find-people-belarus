@@ -3,6 +3,7 @@
 <style>
 .record {
     float: left;
+    padding-right: 25px;
 }
 </style>
 # Поиск задержанных в Беларуси
