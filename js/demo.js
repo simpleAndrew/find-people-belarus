@@ -32,7 +32,7 @@ function searchForPeople(sheetId, tabName, filterWord, year) {
             .map(jsonRec => convertIntoObj(jsonRec))
             .filter(r => r.fullName != null)
             .filter(r => r.fullName.includes(filterWord))
-            .filter(r => year != null || r.year == null || r.year.includes(year))
+            .filter(r => year == null || r.year == null || r.year.includes(year))
             .map(r => r.toHtml())
             .join("")
         $("#result").append(res);
