@@ -1,9 +1,14 @@
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="js/demo.js"></script>
 <style>
-.record {
-    float: left;
-    padding-right: 25px;
+table {
+  width: 100%;
+}
+th {
+  height: 30px;
+}
+td {
+  height: 20px;
 }
 </style>
 # Поиск задержанных в Беларуси
