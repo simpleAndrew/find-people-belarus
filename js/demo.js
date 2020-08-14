@@ -11,7 +11,7 @@ $(function(){
     //     fetchName(sheetId);
     // });
     $.get( sheetUrl(sheetId), function( data ) {
-        var objs = data.values.subarray(0,10)
+        let objs = data.values
             .map(jsonRec => convertIntoObj(jsonRec))
             .map( r => r.toHtml())
             .join()
