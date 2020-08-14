@@ -30,7 +30,7 @@ var sheetUrl = function (sheetId) {
 }
 
 var convertIntoObj = function(json) {
-    new Record(json[1],json[2],json[3],json[4])
+    return new Record(json[1],json[2],json[3],json[4])
 }
 
 class Record {
