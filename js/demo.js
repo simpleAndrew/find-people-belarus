@@ -15,16 +15,6 @@ $(function(){
         alert( "Load was performed." );
     });
 });
-//
-// $("#target").submit(
-//     function (event) {
-//         alert("Handler for .submit() called.");
-//         fetchName(sheetId)
-//         event.preventDefault();
-//     }
-// );
-
-
 
 var fetchName = function (sheetId) {
     $.get(sheetUrl(sheetId), function (data, tS, jq) {

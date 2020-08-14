@@ -4,8 +4,9 @@
  # Поиск задержанных в Беларуси
  
 <form id="target">
-  <input type="text" value="Фамилия">
-  <input type="submit" value="Искать">
+  <label>Фамилия</label>
+  <input id="surname" type="text">
+  <button id="search_submit" type="button">Искать</button>
 </form>
 
 <form id="myForm">
