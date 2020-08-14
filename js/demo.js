@@ -11,11 +11,12 @@ $(function(){
     //     fetchName(sheetId);
     // });
     $.get( sheetUrl(sheetId), function( data ) {
-        var replyStr = JSON.stringify(data)
+        var objs = data.values
+            .map(jsonRec => convertIntoObj(jsonRec))
+            .map( r => r.toHtml())
+            .join()
         alert(replyStr)
-        $("#result").html(replyStr);
-        var objs = data.values.map(jsonRec => convertIntoObj(jsonRec))
-        alert( "Load was performed." + objs );
+        $("#result").html("<div>" + objs + "</div>");
     });
 });
 
@@ -39,5 +40,11 @@ class Record {
         this.year = year
         this.location = location
         this.date = date
+    }
+    toHtml() {
+        return "<div>" + this.fullName + "</div>"
+        + "<div>" + this.year + "</div>"
+        + "<div>" + this.location + "</div>"
+        + "<div>" + this.date + "</div>"
     }
 }
