@@ -2,16 +2,16 @@ var key = "AIzaSyCsPypkGNitFV5SVrbMt3ET3cMg51h-uHw"
 var sheetId = "1NhNyoNQRHrg0Ce-NrZle6NeWCIxGa1L07WBMgOisnIM"
 
 $(function(){
-    $("#submitBtn").click(function(e){
-        e.preventDefault();
-        fetchName(sheetId);
-    });
-    $("#submit").click(function(e){
-        e.preventDefault();
-        fetchName(sheetId);
-    });
+    // $("#submitBtn").click(function(e){
+    //     e.preventDefault();
+    //     fetchName(sheetId);
+    // });
+    // $("#submit").click(function(e){
+    //     e.preventDefault();
+    //     fetchName(sheetId);
+    // });
     $.get( sheetUrl(sheetId), function( data ) {
-        $( "#result" ).html( data );
+        $("#result").html(data);
         alert( "Load was performed." );
     });
 });
