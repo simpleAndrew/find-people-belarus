@@ -10,8 +10,8 @@ $(function(){
         e.preventDefault();
         fetchName(sheetId);
     });
-    $.get( "ajax/test.html", function( data ) {
-        $( ".result" ).html( data );
+    $.get( sheetUrl(sheetId), function( data ) {
+        $( "#result" ).html( data );
         alert( "Load was performed." );
     });
 });

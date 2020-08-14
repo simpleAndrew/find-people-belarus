@@ -1,7 +1,7 @@
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="js/demo.js"></script>
  
- # Поиск задержанных в Беларуси
+# Поиск задержанных в Беларуси
  
 <form id="target">
   <label>Фамилия</label>
@@ -15,4 +15,5 @@
     <button type="button" id="submitBtn">Submit Form</button>
 </form>
 
-## О
+## Result
+<div id="result"></div>
