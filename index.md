@@ -18,7 +18,7 @@ tr:nth-child(even) {background-color: white}
   <label>Фамилия</label>
   <input id="surname" type="text"/>
   <label>Год рождения</label>
-  <input id="year" type="number"/>
+  <input id="year" type="text"/>
   <button id="search_submit" type="button">Искать</button>
 </form>
 
