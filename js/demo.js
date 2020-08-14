@@ -1,33 +1,32 @@
 var key = "AIzaSyCsPypkGNitFV5SVrbMt3ET3cMg51h-uHw"
 var sheetId = "1NhNyoNQRHrg0Ce-NrZle6NeWCIxGa1L07WBMgOisnIM"
 
-$(function(){
-    // $("#submitBtn").click(function(e){
-    //     e.preventDefault();
-    //     fetchName(sheetId);
-    // });
-    // $("#submit").click(function(e){
-    //     e.preventDefault();
-    //     fetchName(sheetId);
-    // });
-    let filterName = "Але"
-    $.get( sheetUrl(sheetId, "Окрестино"), function( data ) {
+$(function () {
+    $("#submitBtn").click(function (e) {
+        e.preventDefault();
+        let filterName = "Але"
+        searchForPeople(sheetId, "Окрестино", filterName)
+    });
+});
+
+
+function searchForPeople(sheetId, tabName, filterWord) {
+    $.get( sheetUrl(sheetId, tabName), function( data ) {
         let objs = data.values
             .map(jsonRec => convertIntoObj(jsonRec))
             .filter(r => r.fullName != null)
-            .filter(r => r.fullName.includes(filterName))
+            .filter(r => r.fullName.includes(filterWord))
             .map( r => r.toHtml())
             .join("")
         alert(objs)
         $("#result").html("<div>" + objs + "</div>");
     });
-});
-
-var sheetUrl = function (sheetId, tabName) {
+}
+function sheetUrl(sheetId, tabName) {
     return 'https://sheets.googleapis.com/v4/spreadsheets/' + sheetId + '/values/' + tabName + '!B2:E1000?key=' + key;
 }
 
-var convertIntoObj = function(json) {
+function convertIntoObj(json) {
     return new Record(json[0],json[1],json[2],json[3])
 }
 
