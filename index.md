@@ -15,7 +15,9 @@ td {
  
 <form id="target">
   <label>Фамилия</label>
-  <input id="surname" type="text">
+  <input id="surname" type="text"/>
+  <label>Год рождения</label>
+  <input id="year" type="number"/>
   <button id="search_submit" type="button">Искать</button>
 </form>
 

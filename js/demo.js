@@ -5,8 +5,7 @@ $(function () {
     $("#search_submit").click(function (e) {
         e.preventDefault();
         let filterName = document.getElementById('surname').value
-        let tabs = tabNames()
-        console.log(tabs)
+        let year = document.getElementById('year').value
         $("#result").html(header())
         tabNames().forEach(tab => searchForPeople(sheetId, tab, filterName))
     });
@@ -27,12 +26,13 @@ function tabNames() {
     ]
 }
 
-function searchForPeople(sheetId, tabName, filterWord) {
+function searchForPeople(sheetId, tabName, filterWord, year) {
     $.get(sheetUrl(sheetId, tabName), function (data) {
         let res = data.values
             .map(jsonRec => convertIntoObj(jsonRec))
             .filter(r => r.fullName != null)
             .filter(r => r.fullName.includes(filterWord))
+            .filter(r => year != null || r.year == null || r.year.includes(year))
             .map(r => r.toHtml())
             .join("")
         $("#result").append(res);
