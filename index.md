@@ -2,11 +2,13 @@
 <script src="js/demo.js"></script>
  <script>
  $(document).ready(function(){
-     $("#submitBtn").click(function(){
-         fetchName(sheetId)
+     $("#submitBtn").click(function(e){
+         e.preventDefault();
+         fetchName(sheetId);
      });
-     $("#submit").click(function(){
-          fetchName(sheetId)
+     $("#submit").click(function(e){
+          e.preventDefault();
+          fetchName(sheetId);
       });
  });
  </script>
