@@ -7,9 +7,8 @@ $().ready(function() {
 });
 
 var fetchName = function(sheetId){
-    var url = 'https://spreadsheets.google.com/feeds/list/'+sheetId+'/values/Окрестино!A1:B2?key='+key;
+    var url = 'https://sheets.googleapis.com/v4/spreadsheets/'+sheetId+'/values/Окрестино!A1:B2?key='+key;
     $.get( url, function( data , tS, jq) {
         $("#text").html(data);
     });
 }
-
