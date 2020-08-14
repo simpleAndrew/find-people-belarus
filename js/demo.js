@@ -1,6 +1,9 @@
 var key = "AIzaSyCsPypkGNitFV5SVrbMt3ET3cMg51h-uHw"
 var sheetId = "1NhNyoNQRHrg0Ce-NrZle6NeWCIxGa1L07WBMgOisnIM"
 
+
+let filterName = "Але"
+
 $(function(){
     // $("#submitBtn").click(function(e){
     //     e.preventDefault();
@@ -13,8 +16,9 @@ $(function(){
     $.get( sheetUrl(sheetId), function( data ) {
         let objs = data.values
             .map(jsonRec => convertIntoObj(jsonRec))
+            .filter(r => r.fullName.contains(filterName))
             .map( r => r.toHtml())
-            .join()
+            .join("")
         alert(objs)
         $("#result").html("<div>" + objs + "</div>");
     });
