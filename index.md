@@ -2,9 +2,12 @@
 <script src="js/demo.js"></script>
  <script>
  $(document).ready(function(){
-     $("#submitBtn").click(function(){        
-         $("#myForm").submit();
+     $("#submitBtn").click(function(){
+         fetchName(sheetId)
      });
+     $("#submit").click(function(){
+          fetchName(sheetId)
+      });
  });
  </script>
  
