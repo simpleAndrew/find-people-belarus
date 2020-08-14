@@ -15,7 +15,7 @@ $(function(){
             .map(jsonRec => convertIntoObj(jsonRec))
             .map( r => r.toHtml())
             .join()
-        alert(replyStr)
+        alert(objs)
         $("#result").html("<div>" + objs + "</div>");
     });
 });
