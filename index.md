@@ -11,6 +11,8 @@ th {
 td {
   text-align: left;
   height: 20px;
+  font-weight: bold;
+  padding: 5px;
 }
 tr:nth-child(even) {background-color: #fdfdf1}
 </style>
