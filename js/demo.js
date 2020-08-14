@@ -12,9 +12,11 @@ $("#target").submit(function( event ) {
 });
 
 var fetchName = function(sheetId){
-    var url = 'https://sheets.googleapis.com/v4/spreadsheets/'+sheetId+'/values/Окрестино!A1:B2?key='+key;
-    $.get( url, function( data , tS, jq) {
+    $.get(sheetUrl(sheetId), function( data , tS, jq) {
         $("#text").html(data);
     });
 }
 
+var sheetUrl= function(sheetId) {
+    'https://sheets.googleapis.com/v4/spreadsheets/'+sheetId+'/values/Окрестино!A1:B2?key='+key;
+}
