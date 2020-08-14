@@ -35,8 +35,8 @@ function searchForPeople(sheetId, tabName, filterWord) {
             .filter(r => r.fullName != null)
             .filter(r => r.fullName.includes(filterWord))
             .map(r => r.toHtml())
-            .join("<div class='float:none'/>")
-        $("#result").append("<div>" + res + "</div>");
+            .join("")
+        $("#result").append(res);
     });
 }
 

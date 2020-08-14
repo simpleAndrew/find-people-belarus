@@ -20,4 +20,4 @@ td {
 </form>
 
 # Релзультаты
-<div id="result"></div>
+<div id="result" style="overflow-x:auto"></div>
