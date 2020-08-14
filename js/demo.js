@@ -11,9 +11,10 @@ $(function(){
     //     fetchName(sheetId);
     // });
     $.get( sheetUrl(sheetId), function( data ) {
-        $("#result").html(data);
+        var replyStr = JSON.stringify(data)
+        alert(replyStr)
+        $("#result").html(replyStr);
         alert( "Load was performed." );
-        alert("" + data)
     });
 });
 
