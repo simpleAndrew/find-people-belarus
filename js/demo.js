@@ -32,7 +32,7 @@ function tabNames() {
 
 function searchForPeople(sheetId, tabName, filterWord) {
     $.get(sheetUrl(sheetId, tabName), function (data) {
-        data.values
+        return data.values
             .map(jsonRec => convertIntoObj(jsonRec))
             .filter(r => r.fullName != null)
             .filter(r => r.fullName.includes(filterWord))
