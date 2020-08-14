@@ -14,6 +14,7 @@ $(function(){
     $.get( sheetUrl(sheetId), function( data ) {
         let objs = data.values
             .map(jsonRec => convertIntoObj(jsonRec))
+            .filter(r => r.fullName != null)
             .filter(r => r.fullName.includes(filterName))
             .map( r => r.toHtml())
             .join("")
