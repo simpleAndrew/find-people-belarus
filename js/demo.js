@@ -7,11 +7,8 @@ $(function () {
         let filterName = document.getElementById('surname').value
         let tabs = tabNames()
         console.log(tabs)
-        tabNames().forEach(tab => {
-            let res = searchForPeople(sheetId, tab, filterName)
-            $("#result").append("<div>" + res + "</div>");
-        })
-
+        $("#result").html("")
+        tabNames().forEach(tab => searchForPeople(sheetId, tab, filterName))
     });
 });
 
@@ -38,6 +35,7 @@ function searchForPeople(sheetId, tabName, filterWord) {
             .filter(r => r.fullName.includes(filterWord))
             .map(r => r.toHtml())
             .join("")
+        $("#result").append("<div>" + res + "</div>");
     });
 }
 
