@@ -4,8 +4,8 @@ var sheetId = "1NhNyoNQRHrg0Ce-NrZle6NeWCIxGa1L07WBMgOisnIM"
 $("#target").submit(
     function (event) {
         alert("Handler for .submit() called.");
-        event.preventDefault();
         fetchName(sheetId)
+        event.preventDefault();
     }
 );
 
