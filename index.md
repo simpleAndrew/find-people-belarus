@@ -1,6 +1,10 @@
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="js/demo.js"></script>
- 
+<style>
+.record {
+    alignment: left;
+}
+</style>
 # Поиск задержанных в Беларуси
  
 <form id="target">
@@ -9,5 +13,5 @@
   <button id="search_submit" type="button">Искать</button>
 </form>
 
-## Result
+# Релзультаты
 <div id="result"></div>

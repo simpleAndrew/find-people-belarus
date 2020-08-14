@@ -56,9 +56,9 @@ class Record {
     }
 
     toHtml() {
-        return "<div>" + this.fullName + "</div>"
-            + "<div>" + this.year + "</div>"
-            + "<div>" + this.location + "</div>"
-            + "<div>" + this.date + "</div>"
+        return "<div class='record'>" + this.fullName + "</div>"
+            + "<div class='record'>" + this.year + "</div>"
+            + "<div class='record'>" + this.location + "</div>"
+            + "<div class='record'>" + this.date + "</div>"
     }
 }
