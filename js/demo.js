@@ -7,7 +7,7 @@ $(function () {
         let filterName = document.getElementById('surname').value
         let year = document.getElementById('year').value
         $("#result").html(header())
-        tabNames().forEach(tab => searchForPeople(sheetId, tab, filterName))
+        tabNames().forEach(tab => searchForPeople(sheetId, tab, filterName, year))
     });
 });
 
