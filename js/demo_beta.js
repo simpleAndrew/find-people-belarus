@@ -200,8 +200,8 @@ class OtherRecord {
 
     toHtml() {
         let cells = [this.fullName, this.birthDate, this.status, this.location, this.other, this.updatedAt]
-            .map(str => "<td>" + str + "</td>")
             .map(s => s || "")
+            .map(str => "<td>" + str + "</td>")
             .join("")
         return "<tr>" + cells + "</tr>"
     }
