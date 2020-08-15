@@ -180,7 +180,7 @@ class HospitalRecord {
     }
 
     toHtml() {
-        let cells = [this.fullName, 2020 - this.age, this.hospital, this.fromWhere, this.other, this.updatedAt]
+        let cells = [this.fullName, this.age === undefined ? undefined : 2020 - this.age, this.hospital, this.fromWhere, this.other, this.updatedAt]
             .map(s => s || "")
             .map(str => "<td>" + str + "</td>")
             .join("")
