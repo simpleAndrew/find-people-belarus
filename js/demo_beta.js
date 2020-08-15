@@ -9,13 +9,11 @@ $(function () {
 
         $("#result").html(header())
         tabNames().forEach(tab => {
-            $("#result").append("<tr><td>" + tab + "</td></tr>")
             searchForPeople(sheetId, tab, filterName, year)
         })
 
         $("#hospital_result").html(hospitalHeaders())
         hospitalTabs().forEach(tab => {
-            $("#hospital_result").append("<tr><td>" + tab + "</td></tr>")
             searchForPeopleInHospitals(sheetId, tab, filterName)
         })
     });
@@ -39,7 +37,8 @@ function searchForPeopleInHospitals(sheetId, tabName, filterWord) {
             .filter(r => r.fullName.includes(filterWord))
             .map(r => r.toHtml())
             .join("")
-        $("#result").append(res);
+        $("#hospital_result").append("<tr>" + tabName + "</tr>")
+        $("#hospital_result").append(res);
     });
 }
 
@@ -52,6 +51,7 @@ function searchForPeople(sheetId, tabName, filterWord, year) {
             .filter(r => year == null || r.age == null || r.age.includes(year))
             .map(r => r.toHtml())
             .join("")
+        $("#result").append("<tr>" + tabName + "</tr>")
         $("#result").append(res);
     });
 }

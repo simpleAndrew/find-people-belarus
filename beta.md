@@ -31,7 +31,7 @@ tr:nth-child(even) {background-color: #fdfdf1}
     <table id="hospital_result">
     <tr>
         <th>ФИО</th>
-        <th>Год Рождения</th>
+        <th>Возраст</th>
         <th>Больница</th>
         <th>Откуда прибыл</th>
     </tr>
@@ -40,8 +40,7 @@ tr:nth-child(even) {background-color: #fdfdf1}
     <tr>
         <th>ФИО</th>
         <th>Дата Рождения</th>
-        <th>Место содержания</th>
-        <th>Дата задержания</th>
+        <th>Статус</th>
     </tr>
     </table>
 </div>
