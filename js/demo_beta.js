@@ -34,10 +34,9 @@ function searchForPeopleInHospitals(sheetId, tabName, filterWord) {
         let res = data.values
             .map(jsonRec => convertIntoHospitalRecord(jsonRec))
             .filter(r => r.fullName != null)
-            .filter(r => r.fullName.includes(filterWord))
+            .filter(r => r.fullName.toLowerCase().includes(filterWord.toLowerCase()))
             .map(r => r.toHtml())
             .join("")
-        $("#hospital_result").append("<tr><td colspan='4'>" + tabName + "</td></tr>")
         $("#hospital_result").append(res);
     });
 }
@@ -47,11 +46,11 @@ function searchForPeople(sheetId, tabName, filterWord, year) {
         let res = data.values
             .map(jsonRec => convertIntoObj(jsonRec))
             .filter(r => r.fullName != null)
-            .filter(r => r.fullName.includes(filterWord))
+            .filter(r => r.fullName.toLowerCase().includes(filterWord.toLowerCase()))
             .filter(r => year == null || r.age == null || r.age.includes(year))
             .map(r => r.toHtml())
             .join("")
-        $("#result").append("<tr><td colspan='3'>" + tabName + "</td></tr>")
+        $("#result").append("<tr><td colspan='3' style='text-align: center'>" + tabName + "</td></tr>")
         $("#result").append(res);
     });
 }

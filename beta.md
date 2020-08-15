@@ -27,6 +27,7 @@ tr:nth-child(even) {background-color: #fdfdf1}
 </form>
 
 # Релзультаты
+## Больницы
 <div style="overflow-x:auto">
     <table id="hospital_result">
     <tr>
@@ -36,6 +37,10 @@ tr:nth-child(even) {background-color: #fdfdf1}
         <th>Откуда прибыл</th>
     </tr>
     </table>
+</div>
+
+## Места задержания
+<div style="overflow-x:auto">
     <table id="result">
     <tr>
         <th>ФИО</th>
