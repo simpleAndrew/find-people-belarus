@@ -46,12 +46,12 @@ function searchForPeopleInOthers(sheetId, tabName, filterWord) {
             .map(jsonRec => convertIntoOtherRecord(jsonRec))
             .filter(r => r.fullName != null)
             .filter(r => r.fullName.toLowerCase().includes(filterWord.toLowerCase()))
-            .sort(function(a,b) {
+            .sort(function (a, b) {
                 return compareObjs(a, b)
             })
             .map(r => r.toHtml())
 
-        if(res.length !== 0) {
+        if (res.length !== 0) {
             $("#other_result").append(res.join(""));
         }
     });
@@ -63,12 +63,12 @@ function searchForPeopleInHospitals(sheetId, tabName, filterWord) {
             .map(jsonRec => convertIntoHospitalRecord(jsonRec))
             .filter(r => r.fullName != null)
             .filter(r => r.fullName.toLowerCase().includes(filterWord.toLowerCase()))
-            .sort(function(a,b) {
+            .sort(function (a, b) {
                 return compareObjs(a, b)
             })
             .map(r => r.toHtml())
 
-        if(res.length !== 0) {
+        if (res.length !== 0) {
             $("#hospital_result").append(res.join(""));
         }
     });
@@ -81,12 +81,12 @@ function searchForPeople(sheetId, tabName, filterWord, year) {
             .filter(r => r.fullName != null)
             .filter(r => r.fullName.toLowerCase().includes(filterWord.toLowerCase()))
             .filter(r => year == null || r.age == null || r.age.includes(year))
-            .sort(function(a,b) {
+            .sort(function (a, b) {
                 return compareObjs(a, b)
             })
             .map(r => r.toHtml())
 
-        if(res.length !== 0) {
+        if (res.length !== 0) {
             let resBlock = $("#result")
             resBlock.append("<tr><td colspan='5' style='text-align: center'>" + tabName + "</td></tr>")
             resBlock.append(res.join(""));
@@ -98,10 +98,16 @@ function searchForPeople(sheetId, tabName, filterWord, year) {
 function compareObjs(a, b) {
     if (a.fullName < b.fullName) {
         return -1;
-    } else if(a.fullName < b.fullName) {
+    } else if (a.fullName < b.fullName) {
         return 1;
     } else {
-        return parseDate(a.updatedAt) - parseDate(b.updatedAt)
+        if (a.updatedAt === undefined) {
+            return -1;
+        } else if (b.updatedAt === undefined) {
+            return 1;
+        } else {
+            return parseDate(a.updatedAt) - parseDate(b.updatedAt)
+        }
     }
 }
 
@@ -134,7 +140,7 @@ function otherHeaders() {
 }
 
 function headers(headerStrArr) {
-    let cells = headerStrArr.map(str => "<td>" + str +"</td>")
+    let cells = headerStrArr.map(str => "<td>" + str + "</td>")
         .join()
     return "<tr>" + cells + "</tr>"
 }
