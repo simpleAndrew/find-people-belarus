@@ -36,8 +36,10 @@ function searchForPeopleInHospitals(sheetId, tabName, filterWord) {
             .filter(r => r.fullName != null)
             .filter(r => r.fullName.toLowerCase().includes(filterWord.toLowerCase()))
             .map(r => r.toHtml())
-            .join("")
-        $("#hospital_result").append(res);
+
+        if(res.length !== 0) {
+            $("#hospital_result").append(res.join(""));
+        }
     });
 }
 
@@ -49,9 +51,12 @@ function searchForPeople(sheetId, tabName, filterWord, year) {
             .filter(r => r.fullName.toLowerCase().includes(filterWord.toLowerCase()))
             .filter(r => year == null || r.age == null || r.age.includes(year))
             .map(r => r.toHtml())
-            .join("")
-        $("#result").append("<tr><td colspan='3' style='text-align: center'>" + tabName + "</td></tr>")
-        $("#result").append(res);
+
+        if(res.length !== 0) {
+            $("#result").append("<tr><td colspan='3' style='text-align: center'>" + tabName + "</td></tr>")
+            $("#result").append(res.join(""));
+        }
+
     });
 }
 
