@@ -142,7 +142,7 @@ function hospitalHeaders() {
 }
 
 function otherHeaders() {
-    return header(["ФИО", "Дата Рождения", "Статус", "Где", "Другое", "Обновлялось"])
+    return headers(["ФИО", "Дата Рождения", "Статус", "Где", "Другое", "Обновлялось"])
 }
 
 function headers(headerStrArr) {
