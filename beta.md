@@ -35,6 +35,8 @@ tr:nth-child(even) {background-color: #fdfdf1}
         <th>Возраст</th>
         <th>Больница</th>
         <th>Откуда прибыл</th>
+        <th>Другое</th>
+        <th>Обновлялось</th>
     </tr>
     </table>
 </div>
@@ -46,6 +48,8 @@ tr:nth-child(even) {background-color: #fdfdf1}
         <th>ФИО</th>
         <th>Дата Рождения</th>
         <th>Статус</th>
+        <th>Другое</th>
+        <th>Обновлялось</th>
     </tr>
     </table>
 </div>

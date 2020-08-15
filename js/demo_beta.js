@@ -27,7 +27,9 @@ function tabNames() {
     ]
 }
 
-function hospitalTabs() { return ["Больницы"]}
+function hospitalTabs() {
+    return ["Больницы"]
+}
 
 function searchForPeopleInHospitals(sheetId, tabName, filterWord) {
     $.get(sheetUrl(sheetId, tabName), function (data) {
@@ -73,14 +75,14 @@ function convertIntoHospitalRecord(json) {
 }
 
 function header() {
-    let cells = ["ФИО", "Дата Рождения", "Статус"]
+    let cells = ["ФИО", "Дата Рождения", "Статус", "Другое", "Обновлялось"]
         .map(str => "<td>" + str +"</td>")
         .join()
     return "<tr>" + cells + "</tr>"
 }
 
 function hospitalHeaders() {
-    let cells = ["ФИО", "Год Рождения", "Больница", "Откуда прибыл"]
+    let cells = ["ФИО", "Год Рождения", "Больница", "Откуда прибыл", "Другое", "Обновлялось"]
         .map(str => "<td>" + str +"</td>")
         .join()
     return "<tr>" + cells + "</tr>"
@@ -91,11 +93,12 @@ class Record {
         this.fullName = fullName
         this.birthDate = birthDate
         this.status = status
+        this.other = other
         this.updatedAt = updatedAt
     }
 
     toHtml() {
-        let cells = [this.fullName, this.birthDate, this.status]
+        let cells = [this.fullName, this.birthDate, this.status, this.other, this.updatedAt]
             .map(str => "<td>" + str + "</td>")
             .join("")
         return "<tr>" + cells + "</tr>"
@@ -113,7 +116,7 @@ class HospitalRecord {
     }
 
     toHtml() {
-        let cells = [this.fullName, 2020 - this.age, this.hospital, this.fromWhere]
+        let cells = [this.fullName, 2020 - this.age, this.hospital, this.fromWhere, this.other, this.updatedAt]
             .map(str => "<td>" + str + "</td>")
             .join("")
         return "<tr>" + cells + "</tr>"
