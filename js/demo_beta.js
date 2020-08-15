@@ -46,6 +46,9 @@ function searchForPeopleInOthers(sheetId, tabName, filterWord) {
             .map(jsonRec => convertIntoOtherRecord(jsonRec))
             .filter(r => r.fullName != null)
             .filter(r => r.fullName.toLowerCase().includes(filterWord.toLowerCase()))
+            .sort(function(a,b) {
+                return compareObjs(a, b)
+            })
             .map(r => r.toHtml())
 
         if(res.length !== 0) {
@@ -60,6 +63,9 @@ function searchForPeopleInHospitals(sheetId, tabName, filterWord) {
             .map(jsonRec => convertIntoHospitalRecord(jsonRec))
             .filter(r => r.fullName != null)
             .filter(r => r.fullName.toLowerCase().includes(filterWord.toLowerCase()))
+            .sort(function(a,b) {
+                return compareObjs(a, b)
+            })
             .map(r => r.toHtml())
 
         if(res.length !== 0) {
@@ -75,6 +81,9 @@ function searchForPeople(sheetId, tabName, filterWord, year) {
             .filter(r => r.fullName != null)
             .filter(r => r.fullName.toLowerCase().includes(filterWord.toLowerCase()))
             .filter(r => year == null || r.age == null || r.age.includes(year))
+            .sort(function(a,b) {
+                return compareObjs(a, b)
+            })
             .map(r => r.toHtml())
 
         if(res.length !== 0) {
@@ -84,6 +93,16 @@ function searchForPeople(sheetId, tabName, filterWord, year) {
         }
 
     });
+}
+
+function compareObjs(a, b) {
+    if (a.fullName < b.fullName) {
+        return -1;
+    } else if(a.fullName < b.fullName) {
+        return 1;
+    } else {
+        return parseDate(a.updatedAt) - parseDate(b.updatedAt)
+    }
 }
 
 function sheetUrl(sheetId, tabName) {
@@ -118,6 +137,13 @@ function headers(headerStrArr) {
     let cells = headerStrArr.map(str => "<td>" + str +"</td>")
         .join()
     return "<tr>" + cells + "</tr>"
+}
+
+function parseDate(stringDate) {
+    let parts = stringDate.split(" ")
+    let date = parts[0].split("-")
+    let time = parts[1].split(":")
+    return new Date(date[0], date[1], date[2], time[0], time[1])
 }
 
 class Record {
