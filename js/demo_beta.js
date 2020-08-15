@@ -17,7 +17,7 @@ $(function () {
             searchForPeopleInHospitals(sheetId, tab, filterName)
         })
 
-        $("#other_result").html(otherTabs())
+        $("#other_result").html(otherHeaders())
         otherTabs().forEach(tab => {
             searchForPeopleInOthers(sheetId, tab, filterName)
         })
@@ -131,6 +131,7 @@ class Record {
 
     toHtml() {
         let cells = [this.fullName, this.birthDate, this.status, this.other, this.updatedAt]
+            .map(s => s || "")
             .map(str => "<td>" + str + "</td>")
             .join("")
         return "<tr>" + cells + "</tr>"
@@ -149,6 +150,7 @@ class HospitalRecord {
 
     toHtml() {
         let cells = [this.fullName, 2020 - this.age, this.hospital, this.fromWhere, this.other, this.updatedAt]
+            .map(s => s || "")
             .map(str => "<td>" + str + "</td>")
             .join("")
         return "<tr>" + cells + "</tr>"
@@ -168,6 +170,7 @@ class OtherRecord {
     toHtml() {
         let cells = [this.fullName, this.birthDate, this.status, this.location, this.other, this.updatedAt]
             .map(str => "<td>" + str + "</td>")
+            .map(s => s || "")
             .join("")
         return "<tr>" + cells + "</tr>"
     }
