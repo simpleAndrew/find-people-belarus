@@ -40,6 +40,8 @@ tr:nth-child(even) {background-color: #fdfdf1}
     </tr>
     </table>
 </div>
+<br/>
+<br/>
 
 ## Места задержания
 <div style="overflow-x:auto">
@@ -53,6 +55,8 @@ tr:nth-child(even) {background-color: #fdfdf1}
     </tr>
     </table>
 </div>
+<br/>
+<br/>
 
 ## Другие места
 <div style="overflow-x:auto">
