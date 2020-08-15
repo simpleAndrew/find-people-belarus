@@ -112,9 +112,8 @@ function compareObjs(a, b) {
 }
 
 function parseDate(stringDate) {
-    let parts = stringDate.split(" ")
-    let date = parts[0].split("-")
-    let time = parts[1].split(":")
+    let date = stringDate.substring(0, 12).split("-")
+    let time = stringDate.substring(13, 18).split(":")
     return new Date(date[0], date[1], date[2], time[0], time[1])
 }
 
