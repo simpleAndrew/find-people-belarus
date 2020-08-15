@@ -53,3 +53,17 @@ tr:nth-child(even) {background-color: #fdfdf1}
     </tr>
     </table>
 </div>
+
+## Другие места
+<div style="overflow-x:auto">
+    <table id="other_result">
+    <tr>
+        <th>ФИО</th>
+        <th>Дата Рождения</th>
+        <th>Статус</th>
+        <th>Где</th>
+        <th>Другое</th>
+        <th>Обновлялось</th>
+    </tr>
+    </table>
+</div>

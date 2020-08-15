@@ -16,6 +16,11 @@ $(function () {
         hospitalTabs().forEach(tab => {
             searchForPeopleInHospitals(sheetId, tab, filterName)
         })
+
+        $("#other_result").html(otherTabs())
+        otherTabs().forEach(tab => {
+            searchForPeopleInOthers(sheetId, tab, filterName)
+        })
     });
 });
 
@@ -23,12 +28,30 @@ function tabNames() {
     return [
         "Слуцк",
         "Окрестина",
-        "Жодина"
+        "Жодино"
     ]
 }
 
 function hospitalTabs() {
     return ["Больницы"]
+}
+
+function otherTabs() {
+    return ["Другие места"]
+}
+
+function searchForPeopleInOthers(sheetId, tabName, filterWord) {
+    $.get(sheetUrl(sheetId, tabName), function (data) {
+        let res = data.values
+            .map(jsonRec => convertIntoOtherRecord(jsonRec))
+            .filter(r => r.fullName != null)
+            .filter(r => r.fullName.toLowerCase().includes(filterWord.toLowerCase()))
+            .map(r => r.toHtml())
+
+        if(res.length !== 0) {
+            $("#other_result").append(res.join(""));
+        }
+    });
 }
 
 function searchForPeopleInHospitals(sheetId, tabName, filterWord) {
@@ -55,8 +78,9 @@ function searchForPeople(sheetId, tabName, filterWord, year) {
             .map(r => r.toHtml())
 
         if(res.length !== 0) {
-            $("#result").append("<tr><td colspan='3' style='text-align: center'>" + tabName + "</td></tr>")
-            $("#result").append(res.join(""));
+            let resBlock = $("#result")
+            resBlock.append("<tr><td colspan='5' style='text-align: center'>" + tabName + "</td></tr>")
+            resBlock.append(res.join(""));
         }
 
     });
@@ -74,16 +98,24 @@ function convertIntoHospitalRecord(json) {
     return new HospitalRecord(json[1], json[2], json[3], json[4], json[5], json[0])
 }
 
+function convertIntoOtherRecord(json) {
+    return new OtherRecord(json[1], json[2], json[3], json[4], json[5], json[0])
+}
+
 function header() {
-    let cells = ["ФИО", "Дата Рождения", "Статус", "Другое", "Обновлялось"]
-        .map(str => "<td>" + str +"</td>")
-        .join()
-    return "<tr>" + cells + "</tr>"
+    return headers(["ФИО", "Дата Рождения", "Статус", "Другое", "Обновлялось"])
 }
 
 function hospitalHeaders() {
-    let cells = ["ФИО", "Год Рождения", "Больница", "Откуда прибыл", "Другое", "Обновлялось"]
-        .map(str => "<td>" + str +"</td>")
+    return headers(["ФИО", "Год Рождения", "Больница", "Откуда прибыл", "Другое", "Обновлялось"])
+}
+
+function otherHeaders() {
+    return header(["ФИО", "Дата Рождения", "Статус", "Где", "Другое", "Обновлялось"])
+}
+
+function headers(headerStrArr) {
+    let cells = headerStrArr.map(str => "<td>" + str +"</td>")
         .join()
     return "<tr>" + cells + "</tr>"
 }
@@ -117,6 +149,24 @@ class HospitalRecord {
 
     toHtml() {
         let cells = [this.fullName, 2020 - this.age, this.hospital, this.fromWhere, this.other, this.updatedAt]
+            .map(str => "<td>" + str + "</td>")
+            .join("")
+        return "<tr>" + cells + "</tr>"
+    }
+}
+
+class OtherRecord {
+    constructor(fullName, birthDate, status, location, other, updatedAt) {
+        this.fullName = fullName
+        this.birthDate = birthDate
+        this.status = status
+        this.location = location
+        this.other = other
+        this.updatedAt = updatedAt
+    }
+
+    toHtml() {
+        let cells = [this.fullName, this.birthDate, this.status, this.location, this.other, this.updatedAt]
             .map(str => "<td>" + str + "</td>")
             .join("")
         return "<tr>" + cells + "</tr>"
